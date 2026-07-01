@@ -4,111 +4,299 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Cutieeeeee ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+:root{
+    --rose-deep:#7d1935;
+    --rose-mid:#c74b6b;
+    --blush:#ffe3e3;
+    --cream:#fff8f0;
+    --gold:#e8b86d;
+    --plum:#1f0a2e;
+    --plum-light:#3a1354;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html,body{
+    height:100%;
+    font-family:'Quicksand',sans-serif;
+    background:linear-gradient(160deg,#ffb4a2,#ff8fab 45%,#e85d75);
+    overflow:hidden;
+    color:var(--cream);
 }
 
 body{
-    overflow:hidden;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    position:relative;
+    width:100vw;
     height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
 }
 
-/* Pages */
+/* ---------- Ambient layers ---------- */
+.stars,.hearts{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:1;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    animation:twinkle-fall linear infinite;
+    opacity:0.85;
+    filter:drop-shadow(0 0 4px rgba(255,255,255,0.6));
+}
+
+@keyframes twinkle-fall{
+    0%{transform:translateY(110vh) rotate(0deg);opacity:0;}
+    10%{opacity:0.9;}
+    90%{opacity:0.9;}
+    100%{transform:translateY(-10vh) rotate(180deg);opacity:0;}
+}
+
+.heart-float{
+    position:absolute;
+    animation:drift linear infinite;
+    opacity:0.75;
+    filter:drop-shadow(0 0 6px rgba(255,255,255,0.35));
+}
+
+@keyframes drift{
+    from{transform:translateY(110vh) translateX(0) scale(1);}
+    to{transform:translateY(-15vh) translateX(30px) scale(1.15);}
+}
+
+/* ---------- Pages ---------- */
 .page{
     position:absolute;
-    width:100%;
-    height:100%;
+    inset:0;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:30px;
-    transition:all 0.8s ease;
+    padding:40px 24px;
+    z-index:5;
+    transition:opacity 0.9s ease, transform 0.9s ease;
 }
 
 .hidden{
     opacity:0;
     pointer-events:none;
-    transform:scale(0.9);
+    transform:scale(0.94) translateY(20px);
 }
 
-/* Text */
-h1{font-size:3rem;margin-bottom:20px;}
-p{font-size:1.2rem;max-width:700px;line-height:1.8;}
-
-button{
-    margin-top:40px;
-    padding:15px 35px;
-    border:none;
-    border-radius:40px;
-    background:white;
-    color:#ff4f81;
-    font-size:1.1rem;
-    cursor:pointer;
-    font-weight:bold;
+.eyebrow{
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:18px;
 }
 
-/* Hearts */
-.heart{
-    font-size:80px;
-    animation:beat 1s infinite;
+h1{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:clamp(2.2rem,6vw,3.6rem);
+    margin-bottom:18px;
+    text-shadow:0 4px 24px rgba(0,0,0,0.25);
+    line-height:1.15;
+}
+
+h1 em{
+    font-style:italic;
+    color:var(--gold);
+}
+
+p{
+    font-size:1.15rem;
+    max-width:640px;
+    line-height:1.85;
+    font-weight:500;
+    text-shadow:0 2px 10px rgba(0,0,0,0.18);
+}
+
+.heart-hero{
+    font-size:5.2rem;
+    animation:beat 1.15s infinite ease-in-out;
+    margin-bottom:6px;
+    filter:drop-shadow(0 8px 18px rgba(0,0,0,0.25));
 }
 
 @keyframes beat{
     0%,100%{transform:scale(1);}
-    50%{transform:scale(1.2);}
+    50%{transform:scale(1.15);}
 }
 
-/* Stars */
-.stars,.hearts{
-    position:absolute;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:-1;
+button.cta{
+    margin-top:42px;
+    padding:16px 42px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#fff,#ffe9e9);
+    color:var(--rose-deep);
+    font-size:1.05rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.6);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    font-family:'Quicksand',sans-serif;
 }
 
-.star,.heart-float{
-    position:absolute;
-    animation:float 8s linear infinite;
-    opacity:0.7;
+button.cta:hover{
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 16px 36px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.7);
 }
 
-@keyframes float{
-    from{transform:translateY(100vh);}
-    to{transform:translateY(-100px);}
+button.cta:active{transform:translateY(0) scale(0.98);}
+
+/* ---------- Polaroid gallery ---------- */
+.slideshow{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:22px;
+    margin-top:34px;
+    max-width:900px;
 }
 
-/* Slideshow */
-.slideshow img{
-    width:250px;
-    height:250px;
-    border-radius:20px;
+.polaroid{
+    background:#fff;
+    padding:14px 14px 30px 14px;
+    border-radius:6px;
+    box-shadow:0 16px 34px rgba(0,0,0,0.35);
+    transform:rotate(var(--tilt));
+    transition:transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.polaroid:nth-child(1){--tilt:-6deg;}
+.polaroid:nth-child(2){--tilt:3deg;}
+.polaroid:nth-child(3){--tilt:-2deg;}
+
+.polaroid:hover{
+    transform:rotate(0deg) translateY(-8px) scale(1.04);
+    box-shadow:0 24px 46px rgba(0,0,0,0.45);
+}
+
+.polaroid img{
+    width:210px;
+    height:210px;
     object-fit:cover;
-    margin:10px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    display:block;
+    border-radius:2px;
 }
 
-/* Final fireworks */
+.polaroid span{
+    display:block;
+    margin-top:10px;
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    color:var(--rose-deep);
+    font-size:0.95rem;
+}
+
+/* ---------- Divider ---------- */
+.divider{
+    width:70px;
+    height:3px;
+    background:var(--gold);
+    border-radius:3px;
+    margin:22px 0;
+    opacity:0.85;
+}
+
+/* ---------- Final page ---------- */
 .final{
-    background:linear-gradient(135deg,#1a0023,#3a0a5c);
+    background:radial-gradient(circle at 50% 30%,var(--plum-light),var(--plum) 70%);
 }
 
-canvas{
+canvas#fireworks{
     position:absolute;
-    top:0;
-    left:0;
+    inset:0;
+    z-index:2;
+}
+
+.final h1{color:#fff;}
+.final .heart-hero{font-size:3.4rem;}
+
+/* ---------- Music control ---------- */
+.music-toggle{
+    position:fixed;
+    bottom:26px;
+    right:26px;
+    z-index:50;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,0.92);
+    color:var(--rose-deep);
+    font-size:1.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 10px 26px rgba(0,0,0,0.3);
+    transition:transform 0.3s ease;
+}
+
+.music-toggle.spinning{animation:spin 3.5s linear infinite;}
+
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+.music-hint{
+    position:fixed;
+    bottom:32px;
+    right:96px;
+    z-index:50;
+    background:rgba(0,0,0,0.55);
+    color:#fff;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:0.8rem;
+    opacity:0;
+    transition:opacity 0.4s ease;
+    pointer-events:none;
+    white-space:nowrap;
+}
+
+.music-hint.show{opacity:1;}
+
+/* ---------- Progress dots ---------- */
+.dots{
+    position:fixed;
+    top:24px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:8px;
+    z-index:50;
+}
+
+.dots span{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.35);
+    transition:background 0.3s ease, transform 0.3s ease;
+}
+
+.dots span.active{
+    background:#fff;
+    transform:scale(1.3);
+}
+
+@media (max-width:520px){
+    .polaroid img{width:150px;height:150px;}
 }
 </style>
 </head>
@@ -118,108 +306,186 @@ canvas{
 <div class="stars" id="stars"></div>
 <div class="hearts" id="hearts"></div>
 
+<div class="dots" id="dots">
+    <span class="active"></span><span></span><span></span><span></span>
+</div>
+
+<button class="music-toggle" id="musicToggle" title="Play music">🎵</button>
+<div class="music-hint" id="musicHint">tap for music</div>
+<audio id="bgMusic" loop preload="none">
+    <source src="vidssave.com The Weeknd - Die For You 128KBPS.mp4" type="audio/mp4">
+</audio>
+
 <div class="page" id="page1">
-    <div class="heart">❤️</div>
-    <h1>Happy Birthday Cuteeeeeeee</h1>
-    <p>I made something special just for you.</p>
-    <button onclick="nextPage(1,2)">Open 💌 Meow Meow Meow</button>
+    <div class="eyebrow">A little something for you</div>
+    <div class="heart-hero">❤️</div>
+    <h1>Happy Birthday, <em>Cutieeeeee</em></h1>
+    <p>I made something special just for you — open it up and see.</p>
+    <button class="cta" onclick="nextPage(1,2)">Open 💌</button>
 </div>
 
 <div class="page hidden" id="page2">
-    <h1>You Are Special ✨</h1>
-    <p>You bring happiness into my life every day.</p>
+    <div class="eyebrow">Chapter Two</div>
+    <h1>You Are <em>Special</em> ✨</h1>
+    <p>You bring happiness into my life every single day.</p>
+    <div class="divider"></div>
 
     <div class="slideshow">
-        <img src="photo1Ani.jpg">
-        <img src="photo12Ani.jpeg">
-        <img src="Photo13ani.jpeg">
+        <div class="polaroid"><img src="photo1Ani.jpg" alt="memory one"><span>my favorite</span></div>
+        <div class="polaroid"><img src="https://github.com/abhay-kapil/Birthday-wish-ani/blob/main/WhatsApp%20Image%202026-07-01%20at%2023.13.23.jpeg" alt="memory two"><span>us</span></div>
+        <div class="polaroid"><img src="Photo13ani.jpeg" alt="memory three"><span>this smile</span></div>
     </div>
 
-    <button onclick="nextPage(2,3)">One More Thing ❤️</button>
+    <button class="cta" onclick="nextPage(2,3)">One More Thing ❤️</button>
 </div>
 
 <div class="page hidden" id="page3">
-    <h1>💌 Final Surprise</h1>
-    <p>You are my everything. I’m lucky to have you ❤️</p>
-
-    <button onclick="nextPage(3,4)">See Surprise 🎆</button>
+    <div class="eyebrow">Chapter Three</div>
+    <h1>💌 A Final Word</h1>
+    <p>You are my everything, and I'm lucky to have you in my life.</p>
+    <button class="cta" onclick="nextPage(3,4)">See the Surprise 🎆</button>
 </div>
 
 <div class="page hidden final" id="page4">
     <canvas id="fireworks"></canvas>
-    <h1>🎆 Happy Birthday My cuteeeeeee 🎆</h1>
-    <p>I love you forever ❤️</p>
+    <div class="heart-hero">🎆</div>
+    <h1>Happy Birthday, my <em>cutieeeeee</em> 🎆</h1>
+    <p>I love you forever. Here's to another beautiful year of us.</p>
 </div>
 
 <script>
-
 function nextPage(cur,next){
     document.getElementById("page"+cur).classList.add("hidden");
     document.getElementById("page"+next).classList.remove("hidden");
+    document.querySelectorAll(".dots span").forEach((d,i)=>{
+        d.classList.toggle("active", i===next-1);
+    });
 }
 
-/* Stars */
-for(let i=0;i<30;i++){
+/* Twinkling stars */
+for(let i=0;i<28;i++){
     let s=document.createElement("div");
     s.className="star";
     s.innerHTML="✨";
     s.style.left=Math.random()*100+"%";
-    s.style.fontSize=(10+Math.random()*20)+"px";
+    s.style.fontSize=(10+Math.random()*18)+"px";
+    s.style.animationDuration=(6+Math.random()*8)+"s";
+    s.style.animationDelay=(Math.random()*8)+"s";
     document.getElementById("stars").appendChild(s);
 }
 
-/* Falling Hearts */
-for(let i=0;i<25;i++){
+/* Falling / floating hearts */
+const heartEmojis=["💖","💗","💕"];
+for(let i=0;i<22;i++){
     let h=document.createElement("div");
     h.className="heart-float";
-    h.innerHTML="💖";
+    h.innerHTML=heartEmojis[Math.floor(Math.random()*heartEmojis.length)];
     h.style.left=Math.random()*100+"%";
-    h.style.fontSize=(10+Math.random()*25)+"px";
-    h.style.animationDuration=(5+Math.random()*8)+"s";
+    h.style.fontSize=(12+Math.random()*22)+"px";
+    h.style.animationDuration=(7+Math.random()*9)+"s";
+    h.style.animationDelay=(Math.random()*9)+"s";
     document.getElementById("hearts").appendChild(h);
 }
 
-/* FIREWORKS */
+/* ---------- Fireworks (final page) ---------- */
 const canvas=document.getElementById("fireworks");
 const ctx=canvas.getContext("2d");
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+resize();
+window.addEventListener("resize",resize);
 
 let particles=[];
+const colors=["#ffd6e0","#e8b86d","#ff8fab","#c74b6b","#fff8f0","#a685e2"];
 
-function createFirework(){
-    for(let i=0;i<30;i++){
+function createFirework(x,y){
+    const color=colors[Math.floor(Math.random()*colors.length)];
+    const count=45;
+    for(let i=0;i<count;i++){
+        const angle=(Math.PI*2*i)/count;
+        const speed=1.5+Math.random()*3.5;
         particles.push({
-            x:canvas.width/2,
-            y:canvas.height/2,
-            vx:(Math.random()-0.5)*5,
-            vy:(Math.random()-0.5)*5,
-            life:100
+            x, y,
+            vx:Math.cos(angle)*speed,
+            vy:Math.sin(angle)*speed,
+            life:70+Math.random()*30,
+            color
         });
     }
 }
 
-function draw(){
-    ctx.fillStyle="rgba(0,0,0,0.2)";
+function fireworksLoop(){
+    ctx.fillStyle="rgba(31,10,46,0.18)";
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
     particles.forEach((p,i)=>{
+        p.vy+=0.02; // gravity
         p.x+=p.vx;
         p.y+=p.vy;
         p.life--;
 
-        ctx.fillStyle="white";
-        ctx.fillRect(p.x,p.y,3,3);
+        ctx.globalAlpha=Math.max(p.life/100,0);
+        ctx.fillStyle=p.color;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,2.2,0,Math.PI*2);
+        ctx.fill();
+        ctx.globalAlpha=1;
 
         if(p.life<=0)particles.splice(i,1);
     });
 
-    requestAnimationFrame(draw);
+    requestAnimationFrame(fireworksLoop);
 }
 
-setInterval(createFirework,1000);
-draw();
+let fireworksStarted=false;
+function launchRandomFirework(){
+    const x=canvas.width*(0.2+Math.random()*0.6);
+    const y=canvas.height*(0.2+Math.random()*0.4);
+    createFirework(x,y);
+}
 
+function startFireworksIfNeeded(){
+    if(fireworksStarted)return;
+    fireworksStarted=true;
+    fireworksLoop();
+    launchRandomFirework();
+    setInterval(launchRandomFirework,1100);
+}
+
+/* Start fireworks once page 4 becomes visible */
+const page4=document.getElementById("page4");
+const observer=new MutationObserver(()=>{
+    if(!page4.classList.contains("hidden")){
+        startFireworksIfNeeded();
+    }
+});
+observer.observe(page4,{attributes:true,attributeFilter:["class"]});
+
+/* ---------- Music toggle ---------- */
+const musicBtn=document.getElementById("musicToggle");
+const musicHint=document.getElementById("musicHint");
+const music=document.getElementById("bgMusic");
+let playing=false;
+
+musicHint.classList.add("show");
+setTimeout(()=>musicHint.classList.remove("show"),3500);
+
+musicBtn.addEventListener("click",()=>{
+    if(!playing){
+        music.play().catch(()=>{
+            musicHint.textContent="add music.mp3 next to this file";
+            musicHint.classList.add("show");
+            setTimeout(()=>musicHint.classList.remove("show"),3000);
+        });
+        musicBtn.textContent="⏸";
+        musicBtn.classList.add("spinning");
+        playing=true;
+    }else{
+        music.pause();
+        musicBtn.textContent="🎵";
+        musicBtn.classList.remove("spinning");
+        playing=false;
+    }
+});
 </script>
 
 </body>
