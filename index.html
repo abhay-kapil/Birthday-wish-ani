@@ -91,12 +91,18 @@ body{
 }
 
 .eyebrow{
-    letter-spacing:0.35em;
+    letter-spacing:0.3em;
     text-transform:uppercase;
-    font-size:0.72rem;
+    font-size:0.95rem;
+    color:#ffffff;
+    font-weight:700;
+    margin-bottom:20px;
+    text-shadow:0 2px 10px rgba(0,0,0,0.45), 0 0 1px rgba(0,0,0,0.6);
+}
+
+.final .eyebrow{
     color:var(--gold);
-    font-weight:600;
-    margin-bottom:18px;
+    text-shadow:0 2px 12px rgba(0,0,0,0.6);
 }
 
 h1{
@@ -156,6 +162,54 @@ button.cta:hover{
 
 button.cta:active{transform:translateY(0) scale(0.98);}
 
+.nav-row{
+    display:flex;
+    gap:16px;
+    margin-top:42px;
+    align-items:center;
+}
+
+.nav-row .cta{margin-top:0;}
+
+button.back{
+    padding:16px 30px;
+    border:1.5px solid rgba(255,255,255,0.75);
+    border-radius:50px;
+    background:rgba(255,255,255,0.12);
+    color:#fff;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    font-family:'Quicksand',sans-serif;
+    transition:transform 0.25s ease, background 0.25s ease;
+}
+
+button.back:hover{
+    transform:translateY(-3px) scale(1.03);
+    background:rgba(255,255,255,0.22);
+}
+
+button.back:active{transform:translateY(0) scale(0.98);}
+
+button.replay{
+    margin-top:42px;
+    padding:16px 38px;
+    border:1.5px solid rgba(255,255,255,0.75);
+    border-radius:50px;
+    background:rgba(255,255,255,0.1);
+    color:#fff;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    font-family:'Quicksand',sans-serif;
+    transition:transform 0.25s ease, background 0.25s ease;
+}
+
+button.replay:hover{
+    transform:translateY(-3px) scale(1.03);
+    background:rgba(255,255,255,0.2);
+}
+
 /* ---------- Polaroid gallery ---------- */
 .slideshow{
     display:flex;
@@ -178,6 +232,8 @@ button.cta:active{transform:translateY(0) scale(0.98);}
 .polaroid:nth-child(1){--tilt:-6deg;}
 .polaroid:nth-child(2){--tilt:3deg;}
 .polaroid:nth-child(3){--tilt:-2deg;}
+.polaroid:nth-child(4){--tilt:5deg;}
+.polaroid:nth-child(5){--tilt:-4deg;}
 
 .polaroid:hover{
     transform:rotate(0deg) translateY(-8px) scale(1.04);
@@ -185,8 +241,8 @@ button.cta:active{transform:translateY(0) scale(0.98);}
 }
 
 .polaroid img{
-    width:210px;
-    height:210px;
+    width:170px;
+    height:170px;
     object-fit:cover;
     display:block;
     border-radius:2px;
@@ -211,7 +267,7 @@ button.cta:active{transform:translateY(0) scale(0.98);}
     opacity:0.85;
 }
 
-/* ---------- Final page & New Enhancements ---------- */
+/* ---------- Final page ---------- */
 .final{
     background:radial-gradient(circle at 50% 30%,var(--plum-light),var(--plum) 70%);
 }
@@ -222,90 +278,8 @@ canvas#fireworks{
     z-index:2;
 }
 
-.final-content {
-    position: relative;
-    z-index: 10; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
 .final h1{color:#fff;}
 .final .heart-hero{font-size:3.4rem;}
-
-.final-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 30px 0;
-    position: relative;
-}
-
-.final-img-wrap {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 4px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-    overflow: hidden;
-    animation: floatIn 2s ease-out forwards;
-    opacity: 0;
-}
-
-.final-img-wrap.left {
-    transform: translateY(20px) rotate(-10deg);
-    animation-delay: 0.5s;
-}
-
-.final-img-wrap.right {
-    transform: translateY(-10px) rotate(10deg);
-    animation-delay: 1s;
-}
-
-.final-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.final-message {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 25px 35px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    max-width: 550px;
-    animation: fadeInText 2s ease forwards;
-    animation-delay: 1.5s;
-    opacity: 0;
-}
-
-.final-message p {
-    font-size: 1.15rem;
-    color: var(--blush);
-    margin: 0 0 15px 0;
-    line-height: 1.6;
-}
-
-.final-message p.signature {
-    margin-top: 5px;
-    margin-bottom: 0;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.3rem;
-    color: #fff;
-}
-
-@keyframes floatIn {
-    to { opacity: 1; transform: translateY(0) rotate(0); }
-}
-
-@keyframes fadeInText {
-    to { opacity: 1; transform: translateY(-10px); }
-}
 
 /* ---------- Music control ---------- */
 .music-toggle{
@@ -378,8 +352,7 @@ canvas#fireworks{
 }
 
 @media (max-width:520px){
-    .polaroid img{width:150px;height:150px;}
-    .final-img-wrap { width: 100px; height: 100px; }
+    .polaroid img{width:120px;height:120px;}
 }
 </style>
 </head>
@@ -396,70 +369,74 @@ canvas#fireworks{
 <button class="music-toggle" id="musicToggle" title="Play music">🎵</button>
 <div class="music-hint" id="musicHint">tap for music</div>
 <audio id="bgMusic" loop preload="none">
-    <source src="vidssave.com The Weeknd - Die For You 128KBPS.mp4" type="audio/mp4">
+    <source src="vidssave.com%20The%20Weeknd%20-%20Die%20For%20You%20128kbps.mp3" type="audio/mpeg">
+    <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="page" id="page1">
     <div class="eyebrow">To My Beautiful Girl</div>
     <div class="heart-hero">❤️</div>
     <h1>Happy Birthday, <em>Cutieeeeee</em></h1>
-    <p>Even though distance keeps us in different countries, you are always closest to my heart. I made a little something for you...</p>
+    <p>I made something special just for you — open it up and see.</p>
     <button class="cta" onclick="nextPage(1,2)">Open 💌</button>
 </div>
 
 <div class="page hidden" id="page2">
-    <div class="eyebrow">The Best Of My Life</div>
-    <h1>My Precious <em>Gift</em> ✨</h1>
-    <p>Meeting you last year was one of the most beautiful things that ever happened to me. Thank you for making me smile.</p>
+    <div class="eyebrow">Chapter Two</div>
+    <h1>You Are <em>Special</em> ✨</h1>
+    <p>You bring happiness into my life every single day.</p>
     <div class="divider"></div>
 
     <div class="slideshow">
-        <div class="polaroid"><img src="photo1Ani.jpg" alt="memory one"><span>the best day</span></div>
-        <div class="polaroid"><img src="Ani31ani.jpeg" alt="memory two"><span>my favorite smile</span></div>
-        <div class="polaroid"><img src="Photo13ani.jpeg" alt="memory three"><span>you & me</span></div>
+        <div class="polaroid"><img src="photo1Ani.jpg" alt="memory one"><span>my favorite</span></div>
+        <div class="polaroid"><img src="photo12Ani.jpeg" alt="memory two"><span>us</span></div>
+        <div class="polaroid"><img src="Photo13ani.jpeg" alt="memory three"><span>this smile</span></div>
+        <div class="polaroid"><img src="Ani31.jpeg" alt="memory four"><span>you, always</span></div>
+        <div class="polaroid"><img src="WhatsApp%20Image%202026-07-01%20at%2023.13.23.jpeg" alt="memory five"><span>that day</span></div>
     </div>
 
-    <button class="cta" onclick="nextPage(2,3)">One More Thing ❤️</button>
+    <div class="nav-row">
+        <button class="back" onclick="prevPage(2,1)">← Back</button>
+        <button class="cta" onclick="nextPage(2,3)">One More Thing ❤️</button>
+    </div>
 </div>
 
 <div class="page hidden" id="page3">
-    <div class="eyebrow">A Promise</div>
-    <h1>💌 Next <em>Year</em>...</h1>
-    <p>I really hope that next year we can finally celebrate your birthday together, creating beautiful memories side by side.</p>
-    <button class="cta" onclick="nextPage(3,4)">See the Surprise 🎆</button>
+    <div class="eyebrow">Chapter Three</div>
+    <h1>💌 A Final Word</h1>
+    <p>You are my everything, and I'm lucky to have you in my life.</p>
+    <div class="nav-row">
+        <button class="back" onclick="prevPage(3,2)">← Back</button>
+        <button class="cta" onclick="nextPage(3,4)">See the Surprise 🎆</button>
+    </div>
 </div>
 
 <div class="page hidden final" id="page4">
     <canvas id="fireworks"></canvas>
-    
-    <div class="final-content">
-        <div class="eyebrow" style="color: var(--blush); letter-spacing: 0.4em;">From Italy, With Love</div>
-        <h1>Happy Birthday, <em>Baby</em> ❤️</h1>
-        
-        <div class="final-gallery">
-            <div class="final-img-wrap left">
-                <img src="photo1Ani.jpg" alt="Memory 1">
-            </div>
-            <div class="final-img-wrap right">
-                <img src="Ani31ani.jpeg" alt="Memory 2">
-            </div>
-        </div>
-
-        <div class="final-message">
-            <p>May God bless you with endless happiness, good health, and make every dream on your wish list come true.</p>
-            <p>Keep shining, keep smiling, and never forget that there is someone in Italy who loves you today, tomorrow, and always.</p>
-            <p class="signature">Meow meow meow 😘💋</p>
-        </div>
+    <div class="eyebrow">The Grand Finale</div>
+    <div class="heart-hero">🎆</div>
+    <h1>Happy Birthday, my <em>cutieeeeee</em> 🎆</h1>
+    <p>I love you forever. Here's to another beautiful year of us.</p>
+    <div class="nav-row">
+        <button class="back" onclick="prevPage(4,3)">← Back</button>
+        <button class="replay" onclick="restart()">Replay from the Start ↺</button>
     </div>
 </div>
 
 <script>
-function nextPage(cur,next){
+function goToPage(cur,next){
     document.getElementById("page"+cur).classList.add("hidden");
     document.getElementById("page"+next).classList.remove("hidden");
     document.querySelectorAll(".dots span").forEach((d,i)=>{
         d.classList.toggle("active", i===next-1);
     });
+}
+
+function nextPage(cur,next){ goToPage(cur,next); }
+function prevPage(cur,next){ goToPage(cur,next); }
+
+function restart(){
+    goToPage(4,1);
 }
 
 /* Twinkling stars */
@@ -572,7 +549,7 @@ setTimeout(()=>musicHint.classList.remove("show"),3500);
 musicBtn.addEventListener("click",()=>{
     if(!playing){
         music.play().catch(()=>{
-            musicHint.textContent="add music.mp4 next to this file";
+            musicHint.textContent="add music.mp3 next to this file";
             musicHint.classList.add("show");
             setTimeout(()=>musicHint.classList.remove("show"),3000);
         });
