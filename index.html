@@ -369,8 +369,7 @@ canvas#fireworks{
 <button class="music-toggle" id="musicToggle" title="Play music">🎵</button>
 <div class="music-hint" id="musicHint">tap for music</div>
 <audio id="bgMusic" loop preload="none">
-    <source src="vidssave.com%20The%20Weeknd%20-%20Die%20For%20You%20128kbps.mp3" type="audio/mpeg">
-    <source src="music.mp3" type="audio/mpeg">
+    <source src="music.mp4" type="audio/mp4">
 </audio>
 
 <div class="page" id="page1">
@@ -392,7 +391,6 @@ canvas#fireworks{
         <div class="polaroid"><img src="photo12Ani.jpeg" alt="memory two"><span>us</span></div>
         <div class="polaroid"><img src="Photo13ani.jpeg" alt="memory three"><span>this smile</span></div>
         <div class="polaroid"><img src="Ani31.jpeg" alt="memory four"><span>you, always</span></div>
-        <div class="polaroid"><img src="WhatsApp%20Image%202026-07-01%20at%2023.13.23.jpeg" alt="memory five"><span>that day</span></div>
     </div>
 
     <div class="nav-row">
@@ -549,7 +547,7 @@ setTimeout(()=>musicHint.classList.remove("show"),3500);
 musicBtn.addEventListener("click",()=>{
     if(!playing){
         music.play().catch(()=>{
-            musicHint.textContent="add music.mp3 next to this file";
+            musicHint.textContent="add music.mp4 next to this file";
             musicHint.classList.add("show");
             setTimeout(()=>musicHint.classList.remove("show"),3000);
         });
