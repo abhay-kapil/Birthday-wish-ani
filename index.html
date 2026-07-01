@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday ❤️</title>
+<title>Happy Birthday Cutieeeeee ❤️</title>
 
 <style>
 *{
@@ -115,15 +115,9 @@ canvas{
 
 <body>
 
-<!-- MUSIC (replace link) -->
-<audio id="music" autoplay loop>
-  <source src="your-song.mp3" type="audio/mpeg">
-</audio>
-
 <div class="stars" id="stars"></div>
 <div class="hearts" id="hearts"></div>
 
-<!-- PAGE 1 -->
 <div class="page" id="page1">
     <div class="heart">❤️</div>
     <h1>Happy Birthday Cuteeeeeeee</h1>
@@ -131,21 +125,19 @@ canvas{
     <button onclick="nextPage(1,2)">Open 💌 Meow Meow Meow</button>
 </div>
 
-<!-- PAGE 2 -->
 <div class="page hidden" id="page2">
     <h1>You Are Special ✨</h1>
     <p>You bring happiness into my life every day.</p>
 
     <div class="slideshow">
-        <img src="photo1.jpg">
-        <img src="photo2.jpg">
-        <img src="photo3.jpg">
+        <img src="photo1Ani.jpg">
+        <img src="photo12Ani.jpeg">
+        <img src="Photo13ani.jpeg">
     </div>
 
     <button onclick="nextPage(2,3)">One More Thing ❤️</button>
 </div>
 
-<!-- PAGE 3 -->
 <div class="page hidden" id="page3">
     <h1>💌 Final Surprise</h1>
     <p>You are my everything. I’m lucky to have you ❤️</p>
@@ -153,10 +145,9 @@ canvas{
     <button onclick="nextPage(3,4)">See Surprise 🎆</button>
 </div>
 
-<!-- PAGE 4 FINAL -->
 <div class="page hidden final" id="page4">
     <canvas id="fireworks"></canvas>
-    <h1>🎆 Happy Birthday My Princess 🎆</h1>
+    <h1>🎆 Happy Birthday My cuteeeeeee 🎆</h1>
     <p>I love you forever ❤️</p>
 </div>
 
@@ -187,11 +178,6 @@ for(let i=0;i<25;i++){
     h.style.animationDuration=(5+Math.random()*8)+"s";
     document.getElementById("hearts").appendChild(h);
 }
-
-/* Autoplay music fix */
-document.body.addEventListener("click",()=>{
-    document.getElementById("music").play();
-});
 
 /* FIREWORKS */
 const canvas=document.getElementById("fireworks");
