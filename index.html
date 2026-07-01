@@ -419,8 +419,9 @@ canvas#fireworks {
 
 <button class="music-toggle" id="musicToggle" title="Play music">🎵</button>
 <div class="music-hint" id="musicHint">tap for music</div>
-<!-- Updated to .mp3 and audio/mpeg -->
+<!-- Song is uploaded as music.mp4 in the repo -->
 <audio id="bgMusic" loop preload="none">
+    <source src="music.mp4" type="audio/mp4">
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -620,7 +621,7 @@ setTimeout(() => musicHint.classList.remove("show"), 4000);
 musicBtn.addEventListener("click", () => {
     if(!playing){
         music.play().catch(() => {
-            musicHint.textContent = "Please add music.mp3 next to this file";
+            musicHint.textContent = "Please add music.mp4 next to this file";
             musicHint.classList.add("show");
             setTimeout(() => musicHint.classList.remove("show"), 3500);
         });
